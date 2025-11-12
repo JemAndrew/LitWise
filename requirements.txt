@@ -1,0 +1,23 @@
+# Core Framework
+Django==5.0.0
+psycopg2-binary==2.9.9  # PostgreSQL adapter
+
+# Environment Variables
+python-decouple==3.8
+
+# Task Queue (Windows-friendly alternative to Celery)
+django-q==1.7.4
+# We'll use this instead of Celery+Redis for now
+
+# PDF Processing
+PyMuPDF==1.23.8
+
+# API Integrations
+anthropic==0.25.0
+requests==2.31.0
+
+# Citation Formatting
+citeproc-py==0.6.0
+
+# Django Extensions
+django-extensions==3.2.3
