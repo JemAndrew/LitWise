@@ -6,11 +6,11 @@ psycopg2-binary==2.9.9  # PostgreSQL adapter
 python-decouple==3.8
 
 # Task Queue (Windows-friendly alternative to Celery)
-django-q==1.7.4
+django-q2
 # We'll use this instead of Celery+Redis for now
 
 # PDF Processing
-PyMuPDF==1.23.8
+PyMuPDF==1.24.9
 
 # API Integrations
 anthropic==0.25.0

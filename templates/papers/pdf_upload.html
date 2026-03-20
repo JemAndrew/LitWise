@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Upload PDF — LitWise{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto mt-8">
+    <h1 class="text-2xl font-bold text-gray-900 mb-6">Upload PDF</h1>
+    <form method="post" enctype="multipart/form-data" class="bg-white shadow rounded-lg p-6 space-y-4">
+        {% csrf_token %}
+        <div>
+            <label for="id_pdf_file" class="block text-sm font-medium text-gray-700 mb-1">{{ form.pdf_file.label }}</label>
+            {{ form.pdf_file }}
+            {% if form.pdf_file.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ form.pdf_file.errors.0 }}</p>
+            {% endif %}
+        </div>
+        <p class="text-xs text-gray-500">A new paper will be created from this PDF. Max 50 MB.</p>
+        <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded text-sm font-medium hover:bg-indigo-700">
+            Upload
+        </button>
+    </form>
+</div>
+{% endblock %}

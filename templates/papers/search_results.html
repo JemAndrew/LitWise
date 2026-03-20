@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Search — LitWise{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold text-gray-900 mb-6">Search Papers</h1>
+
+<form method="get" class="flex gap-3 mb-6">
+    {{ form.q }}
+    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded text-sm hover:bg-indigo-700 shrink-0">Search</button>
+</form>
+
+{% if query %}
+<p class="text-sm text-gray-500 mb-4">{{ papers|length }} result{{ papers|length|pluralize }} for "{{ query }}"</p>
+
+{% if papers %}
+<div class="space-y-3">
+    {% for paper in papers %}
+    <a href="{% url 'papers:paper_detail' paper.pk %}" class="block bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:border-indigo-300 transition">
+        <h2 class="font-semibold text-gray-900 truncate">{{ paper.title }}</h2>
+        <p class="text-sm text-gray-500 mt-1">
+            {% if paper.year %}{{ paper.year }}{% endif %}
+            {% if paper.journal %}· {{ paper.journal }}{% endif %}
+        </p>
+    </a>
+    {% endfor %}
+</div>
+{% else %}
+<p class="text-gray-500 text-center py-8">No papers found.</p>
+{% endif %}
+{% endif %}
+{% endblock %}
